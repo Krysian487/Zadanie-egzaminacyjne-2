@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wędkowanie</title>
     <link rel="stylesheet" href="styl_1.css">
-
 </head>
-<body>
+
 <body>
     <header>
         <h1>Portal dla wędkarzy</h1>
@@ -27,31 +27,31 @@
         </ol>
     </section>
     <aside>
-        <img src="./ryba1.jpg" alt="Sum">
+        <img src="ryba1.jpg" alt="Sum"><br>
         <a href="./05312507197/kwerendy.txt">Pobierz kwerendy</a>
-        </aside>
-        <main>
-            <table>
-                <h3>Ryby drapieżne naszych wód</h3>
-                <tr>
-                    <th>L.p</th>
-                    <th>Gatunek</th>
-                    <th>Występowanie></th>
-        </tr>
-        <?php
-        $polocznie = mysqli_connect('localhost', 'root','', 'wedkowanie');
-        $sql = "SELECT ryby.nazwa, ryby.wystepowanie FROM ryby WHERE ryby.drapieznosc = 1";
-        $wynik = mysqli_query($polaczenie, $sql);
-        while ($wiersz = mysqli_fetch_assoc($wynik)) {
-            echo "<tr><td>" . $wiersz['id'] . "</td><td>" . $wiersz['nazwa'] . "</td><td>" . $wiersz['wystepowanie'] . "</td></tr>";
-        }
-
-        mysqli_close($poloczenie);
-        ?>
+    </aside>
+    <main>
+        <table>
+            <h3>Ryby drapieżne naszych wód</h3>
+            <tr>
+                <th>L.p.</th>
+                <th>Gatunek</th>
+                <th>Występowanie</th>
+            </tr>
+            <?php
+            $polaczenie = mysqli_connect('localhost', 'root', '', 'wedkowanie');
+            $sql = "SELECT `id`, `nazwa`, `wystepowanie` FROM ryby WHERE styl_zycia = 1";
+            $wynik = mysqli_query($polaczenie, $sql);
+            while ($wiersz = mysqli_fetch_assoc($wynik)) {
+                echo "<tr><td>" . $wiersz['id'] . "</td><td>" . $wiersz['nazwa'] . "</td><td>" . $wiersz['wystepowanie'] . "</td></tr>";
+            }
+            mysqli_close($polaczenie);
+            ?>
         </table>
     </main>
     <footer>
         <p>Stronę wykonał: Krystian Potoczek</p>
     </footer>
-    </body>
-    </html>
+</body>
+
+</html>
